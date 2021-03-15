@@ -1,0 +1,3 @@
+select  estudiante,e.numero_cuenta, nombre_asignatura, seccion,observacion 
+ from estudiante e join lista_de_alumnos nf on e.id_estudiante= nf.id_estudiante join asignatura a on nf.id_asignatura = a.id_asignatura join 
+ docente d on nf.id_docente = d.id_docente join personas pe on e.id_persona = pe.id_persona where a.id_asignatura
