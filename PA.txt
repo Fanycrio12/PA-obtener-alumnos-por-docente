@@ -6,7 +6,7 @@ select  estudiante,e.numero_cuenta, nombre_asignatura, seccion
 
 USE Docente;
 DELIMITER //
-CREATE PROCEDURE Add_User
+CREATE PROCEDURE count_User
 {
    IN _Estudiante VARCHAR(15),
    IN _numero_cuenta INT,
