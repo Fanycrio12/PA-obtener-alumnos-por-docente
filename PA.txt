@@ -4,16 +4,25 @@ select  estudiante,e.numero_cuenta, nombre_asignatura, seccion
 
 
 
-USE Docente;
-DELIMITER //
-CREATE PROCEDURE count_User
+CREATE PROCEDURE ObtenerAlumnosporDocente
 {
-   IN _Estudiante VARCHAR(15),
-   IN _numero_cuenta INT,
-   IN _nombre_asignatura VARCHAR(20),
-   IN _seccion INT
+
+   IN _id_docente INT,
+   IN _id_asignatura INT,
+   IN _id_rel_estudiante_asignatura INT
 }
 BEGIN
-INSERT INTO users (Estudiante, numero_cuenta, nombre_asignatura, seccion) VALUES (_Estudiante, _numero_cuenta, _nombre_asignatura, _seccion, NON());
+select  e ,e.numero_cuenta,nombre completo,nombre_asignatura,seccion,observacion,parcial1,parcial2,parcial3,nota final
+ from estudiante e  join personas pe on e.id_persona = pe.id_persona 
+ join asignatura a on nf.id_asignatura = a.id_asignatura 
+ join docente d on nf.id_docente = d.id_docente 
+ join personas pe on e.id_persona = pe.id_persona
+ join rel_estudiante_asignatura rsa on rsa.id_asignatura = a.id_asignatura
+ where a.id_asignatura = id_asignatura && 
+	   e.id_docente = id_estudiante && 
+       rsa.id_rel_estudiante_asignatura = id__rel_estudiante_asignatura;
+
 END
 //
+
+DELIMITER 
